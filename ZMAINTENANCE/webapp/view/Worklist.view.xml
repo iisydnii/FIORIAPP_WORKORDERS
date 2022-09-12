@@ -1,0 +1,152 @@
+<mvc:View
+	controllerName="ZPM.ZMAINTENANCE.controller.Worklist"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar">
+
+	<semantic:SemanticPage
+		id="page"
+		headerPinnable="false"
+		toggleHeaderOnTitleClick="false">
+
+		<semantic:titleHeading>
+			<Title text="{i18n>worklistTitle}" />
+		</semantic:titleHeading>
+
+		<semantic:content>
+				<IconTabBar
+				id="iconTabBar"
+				select=".onQuickFilter"
+				expandable="false"
+				headerBackgroundDesign="Transparent">
+				<items>
+					<IconTabFilter
+						key="countAll"
+						showAll="true"
+						count="{worklistView>/all}"
+						text="{i18n>WorklistFilterAll}"/>
+					<IconTabSeparator/>
+					<IconTabFilter
+						key="upcoming"
+						icon="sap-icon://message-success"
+						iconColor="Positive"
+						count="{worklistView>/upcoming}"
+						text="{i18n>WorklistFilterActive}"/>
+					<IconTabFilter
+						key="current"
+						icon="sap-icon://message-warning"
+						iconColor="Critical"
+						count="{worklistView>/current}"
+						text="{i18n>WorklistFilterService}"/>
+					<IconTabFilter
+						key="pastdue"
+						icon="sap-icon://message-error"
+						iconColor="Negative"
+						count="{worklistView>/pastdue}"
+						text="{i18n>WorklistFilterRetired}"/>
+				</items>
+				<content>
+			<Table
+				id="table"
+				width="auto"
+				items="{
+					path: '/WorkOrderListSet',
+								parameters: {
+									$count: true
+								},
+					sorter: {
+						path: 'SHORT_TEXT',
+						descending: false
+					}
+				}"
+				noDataText="{worklistView>/tableNoDataText}"
+				busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+				growing="true"
+				growingScrollToLoad="true"
+				updateFinished="onUpdateFinished">
+
+				<headerToolbar>
+					<Toolbar>
+					  <ToolbarSpacer></ToolbarSpacer>
+							<Button text="Create Workorder" press="onCreate"/>
+                          <HBox justifyContent='End'>
+							<Button text="Export" press="onDataExport" icon="sap-icon://download"/>
+						  </HBox>
+					</Toolbar>
+				</headerToolbar>
+
+
+
+  
+     
+				<columns>
+					<Column id="nameColumn">
+						<Text text="{i18n>ORDERIDColumnTitle}" id="ORDERIDColumnTitle"/>
+						
+					</Column>
+					<Column id="ORDER_TYPEColumn">
+							<Text text="{i18n>ORDER_TYPEColumnTitle}" id="ORDER_TYPEColumnTitle"/>
+						
+					</Column>
+						<Column id="SHORT_TEXTColumn">
+							<Text text="{i18n>SHORT_TEXTColumnTitle}" id="SHORT_TEXTColumnTitle"/>
+						
+					</Column>
+						<Column id="FUNCLDESCRColumn">
+							<Text text="{i18n>FUNCLDESCRColumnTitle}" id="FUNCLDESCRColumnTitle"/>
+						
+					</Column>
+						<Column id="EQUIDESCRColumn">
+							<Text text="{i18n>EQUIDESCRColumnTitle}" id="EQUIDESCRColumnTitle"/>
+						
+					</Column>
+						<Column id="START_DATEColumn">
+							<Text text="{i18n>START_DATEColumnTitle}" id="START_DATEColumnTitle"/>
+						
+					</Column>
+						<Column id="FINISH_DATEColumn">
+							<Text text="{i18n>FINISH_DATEColumnTitle}" id="FINISH_DATEColumnTitle"/>
+						
+					</Column>
+			
+					
+				
+				</columns>
+
+				<items id="items">
+					
+				
+     
+     
+					<ColumnListItem 
+						type="Navigation"
+						press="onPress">
+						<cells>
+							<ObjectIdentifier 
+								title="{ path:'ORDERID', formatter: '.formatter.trimleadzero' }"/>
+								<Text text="{ path:'ORDER_TYPE' }"/>
+							<Text text="{ path:'SHORT_TEXT' }"/>
+								<Text text="{ path:'FUNCLDESCR' }"/>
+									<Text text="{ path:'EQUIDESCR', formatter: '.formatter.trimsix' }"/>
+										<Text text="{ path:'START_DATE', formatter: '.formatter.date' }"/>
+										<Text text="{ path:'FINISH_DATE', formatter: '.formatter.date' }"/>
+									
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+				</content>
+			</IconTabBar>
+		</semantic:content>
+
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+		
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id ="shareTile" title="{worklistView>/saveAsTileTitle}" />
+		</semantic:saveAsTileAction>
+		
+	</semantic:SemanticPage>
+</mvc:View>

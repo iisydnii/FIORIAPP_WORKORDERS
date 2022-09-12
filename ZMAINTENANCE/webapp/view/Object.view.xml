@@ -1,0 +1,93 @@
+<mvc:View controllerName="ZPM.ZMAINTENANCE.controller.Object" id="view1" height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:semantic="sap.f.semantic" displayBlock="true">
+	<semantic:SemanticPage id="mySemanticPage" headerPinnable="true" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false"
+		showFooter="true">
+		<semantic:titleHeading>
+			<Title text="{SHORT_TEXT}"/>
+		</semantic:titleHeading>
+		<!-- Title Content-->
+		<semantic:titleContent></semantic:titleContent>
+		<!-- TitleExpanded content-->
+		<semantic:titleSnappedContent>
+			<Text text="{/titleSnappedContent/text}"/>
+		</semantic:titleSnappedContent>
+		<!-- Header Content -->
+		<semantic:headerContent>
+			<layout:HorizontalLayout allowWrapping="true">
+				<layout:VerticalLayout class="sapUiMediumMarginEnd">
+					<ObjectAttribute title="Order" text="{ path:'ORDERID', formatter: '.formatter.trimleadzero' }"/>
+					<ObjectAttribute title="Order Type" text="{ORDER_TYPE}"/>
+					<ObjectAttribute title="Location" text="{FUNCLDESCR}"/>
+					<ObjectAttribute title="Equipment" text="{ path:'EQUIDESCR', formatter: '.formatter.trimsix' }"/>
+				</layout:VerticalLayout>
+			</layout:HorizontalLayout>
+					<Toolbar>
+					  <ToolbarSpacer></ToolbarSpacer>
+							<Button text="Edit Header" press="onEditHeader"/>
+					</Toolbar>
+		</semantic:headerContent>
+		<!-- Content -->
+		<semantic:content>
+			<Table id="idOperationsListTable" inset="false" items="{path:'/OperationListSet'}" class="sapFSemanticPageAlignContent" width="auto">
+				<columns>
+					<Column>
+						<Text text="Operation"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Description"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Location"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Equipment"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Planned Work"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Actual Work"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true"></Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle">
+						<cells>
+							<ObjectIdentifier title="{ path:'ORDERID', formatter: '.formatter.trimleadzero' }" text="{OPERATION}"/>
+							<Text text="{DESCRIPTION}"/>
+							<Text text="{FUNCLDESCR}"/>
+							<Text text="{EQUIDESCR}"/>
+							<Text text="{WORK_ACTIVITY} {UN_WORK}"/>
+							<Text text="{WORK_ACTUAL} {UN_WORK}"/>
+							<HBox>
+								<items>
+									<FlexBox id="fa1" height="100px" alignItems="Center" width="50px" justifyContent="SpaceAround">
+										<items>
+											<Button press="onOpenDialog" icon="sap-icon://time-entry-request" 
+											tooltip="Enter Time"/>
+										</items>
+									</FlexBox>
+									<FlexBox id="fb1" height="100px" alignItems="Center" width="50px" justifyContent="SpaceAround">
+										<items>
+											<Button press="readText" icon="sap-icon://attachment-text-file" tooltip="Long Text"/>
+										</items>
+									</FlexBox>
+									<FlexBox id="fc1" height="100px" alignItems="Center" width="50px" justifyContent="SpaceAround">
+										<items>
+											<Button press="onEditOperation" icon="sap-icon://edit" tooltip="Change Operation"/>
+										</items>
+									</FlexBox>
+								</items>
+							</HBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+		<semantic:footerCustomActions>
+			<Button press="onAdd" text="Add Operation"/>
+			<Button press="onRelease" text="Release Order"/>
+			<Button press="onComplete" text="Mark Complete"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

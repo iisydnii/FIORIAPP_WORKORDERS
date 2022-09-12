@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+  <ViewSettingsDialog confirm="onConfirm">
+    <sortItems>
+      <ViewSettingsItem key="Plant" text="Order"/>
+      <ViewSettingsItem key="ORDER_TYPE" text="Type"/>
+      <ViewSettingsItem key="FUNCLDESCR" text="Location"/>	
+      <ViewSettingsItem key="EQUIDESCR" text="Equipment"/>	
+      <ViewSettingsItem key="START_DATE" text="Start"/>	
+      <ViewSettingsItem key="FINISH_DATE" text="End"/>	
+    </sortItems>
+    <filterItems>
+      <ViewSettingsFilterItem  key="Plant" text="Order" multiSelect="false" />
+      <ViewSettingsFilterItem  key="ORDER_TYPE" text="Type" multiSelect="false" />
+      <ViewSettingsFilterItem  key="FUNCLDESCR" text="Location" multiSelect="false" />	
+      <ViewSettingsFilterItem  key="EQUIDESCR" text="Equipment" multiSelect="false" />	
+      <ViewSettingsFilterItem  key="START_DATE" text="Start" multiSelect="false" />	
+      <ViewSettingsFilterItem  key="FINISH_DATE" text="End" multiSelect="false" />	
+    </filterItems>
+  </ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,181 @@
+<mvc:View
+		height="100%"
+		controllerName="ZPM.ZMAINTENANCE.controller.Create"
+		xmlns="sap.m"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns:c= "sap.ui.core"
+		xmlns:l="sap.ui.layout">
+	<Page title="{i18n>CreateTitle}" floatingFooter="true" 
+		class="sapUiResponsivePadding--header sapUiResponsivePadding--content sapUiResponsivePadding--footer sapUiResponsivePadding--floatingFooter">
+		<headerContent>
+		</headerContent>
+		<Panel expandable="true" expanded="true" headerText="Header Info" width="auto" class="sapUiResponsiveMargin">
+			<content>
+				<sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" id="__form1">
+					<sap.ui.layout.form:formContainers>
+						<sap.ui.layout.form:FormContainer id="__container1">
+							<sap.ui.layout.form:formElements></sap.ui.layout.form:formElements>
+				
+								<sap.ui.layout.form:FormElement label="Short Text" id="SHORT_TEXT">
+									<sap.ui.layout.form:fields>
+										<Input width="50%" id="inputST"/>
+									</sap.ui.layout.form:fields>
+								</sap.ui.layout.form:FormElement>
+								
+								<sap.ui.layout.form:FormElement label="Order Type" id="ORDER_TYPE">
+									<sap.ui.layout.form:fields>
+										
+										<ComboBox xmlns="sap.m" id="inputORDER_TYPE" items="{ path: '/OrderTypeListSet' }" width="50%">
+										 <core:Item xmlns:core="sap.ui.core" key="{AUART}" text="{AUART}"/>
+										</ComboBox>
+										
+									</sap.ui.layout.form:fields>
+								</sap.ui.layout.form:FormElement>
+								
+								<sap.ui.layout.form:FormElement label="Plant" id="PLANT">
+							        <sap.ui.layout.form:fields>
+							        	
+							        	<ComboBox xmlns="sap.m" id="inputPlant" items="{ path: '/PlantListSet' }" width="50%">
+											<core:Item xmlns:core="sap.ui.core" key="{WERKS}" text="{WERKS}"/>
+										</ComboBox>
+										
+							        </sap.ui.layout.form:fields>
+							    </sap.ui.layout.form:FormElement>
+								
+								<sap.ui.layout.form:FormElement label="PMActType" id="PMActType">
+							        <sap.ui.layout.form:fields>
+							            <Input width="50%" id="inputPMActType"/>
+							        </sap.ui.layout.form:fields>
+							    </sap.ui.layout.form:FormElement>
+							    
+							    <sap.ui.layout.form:FormElement label="Main Work Center" id="MN_WK_CTR">          
+							        <sap.ui.layout.form:fields>
+							        	
+							        	<ComboBox xmlns="sap.m" id="inputMN_WK_CTR" items="{ path: '/WorkCtrListSet' }" width="50%">
+											<core:Item xmlns:core="sap.ui.core" key="{ARBPL}" text="{ARBPL}"/>
+										</ComboBox>
+										
+							        </sap.ui.layout.form:fields>
+							    </sap.ui.layout.form:FormElement>
+							    
+							    <sap.ui.layout.form:FormElement label="Equipment" id="Equipment">
+							    	<sap.ui.layout.form:fields>
+									
+									<ComboBox xmlns="sap.m" id="inputEquipment" items="{ path: '/EquipmentListSet' }" width="50%">
+										<core:Item xmlns:core="sap.ui.core" key="{EQUNR}" text="{EQKTX} - {EQUNR}"/>
+									</ComboBox>
+									
+									</sap.ui.layout.form:fields>
+							    </sap.ui.layout.form:FormElement>
+
+							    <sap.ui.layout.form:FormElement label="Start Date" id="START">
+							        <sap.ui.layout.form:fields>
+							            <DatePicker width="50%" 
+							            id="inputSTART"
+										displayFormat='MM/dd/yyyy'
+										change="handleChange"/>
+							        </sap.ui.layout.form:fields>
+							    </sap.ui.layout.form:FormElement>
+							    
+							    <sap.ui.layout.form:FormElement label="Finish Date" id="FINISH">
+							        <sap.ui.layout.form:fields>
+							            <DatePicker width="50%" 
+							            id="inputFINISH"
+										displayFormat='MM/dd/yyyy'
+										change="handleChange"/>
+							        </sap.ui.layout.form:fields>
+							    </sap.ui.layout.form:FormElement>
+							    
+							</sap.ui.layout.form:FormContainer>
+						</sap.ui.layout.form:formContainers>
+				
+					<sap.ui.layout.form:layout>
+						<sap.ui.layout.form:ResponsiveGridLayout id="__layout1"/>
+					</sap.ui.layout.form:layout>
+				</sap.ui.layout.form:Form>
+			</content>
+		</Panel>
+		<Panel expandable="true" expanded="false" headerText="Operations Added" width="auto" class="sapUiResponsiveMargin">
+			<headerToolbar>
+				<Toolbar height="3rem">
+					<Title text="Added Operations"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://sys-minus" text="Delete Row" type="Reject" press="onDelete"/>
+				</Toolbar>
+			</headerToolbar>
+			<content>
+				<Table id="addOperation" items="{/data}" mode= "MultiSelect" growing="true" visible="true" growingThreshold="4" growingScrollToLoad="false">
+					<items>
+						<ColumnListItem id="itemlist">
+							<cells>
+								<Text text="{contKey}" id="Control_Key"/>
+								<Text text="{desc}" id="Description"/>
+								<Text text="{quantity}" id="Qty"/>
+								<Text text="{curr}" id="Currency"/>
+								<Text text="{activityType}" id="ActType"/>
+								<Text text="{purOrg}" id="Purch_Org"/>
+								<Text text="{Plan_Time}" id="Plan_Time"/>
+								<Text text="{Time_Unit}" id="Time_Unit"/>
+								<Text text="{Long_Text}" id="Long_Text"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+					<columns>
+						<Column id="control_Key">
+							<header>
+								<Label text="Control Key" id="headControlKey"/>
+							</header>
+						</Column>
+						<Column id="description">
+							<header>
+								<Label text="Description" id="headDescription"/>
+							</header>
+						</Column>
+						<Column id="qty">
+							<header>
+								<Label text="Quantity" id="headQuantity"/>
+							</header>
+						</Column>
+						<Column id="currency">
+							<header>
+								<Label text="Currency" id="headCurrency"/>
+							</header>
+						</Column>
+						<Column id="actType">
+							<header>
+								<Label text="Activity Type" id="headActType"/>
+							</header>
+						</Column>
+						<Column id="purch_Org">
+							<header>
+								<Label text="Purchace Organization" id="headpurch_Org"/>
+							</header>
+						</Column>
+						<Column id="plan_Time">
+							<header>
+								<Label text="Planned Time" id="headplan_Time"/>
+							</header>
+						</Column>
+						<Column id="time_Unit">
+							<header>
+								<Label text="Time Unit" id="headtime_Unit"/>
+							</header>
+						</Column>
+						<Column id="long_text">
+							<header>
+								<Label text="Long Text" id="headtext"/>
+							</header>
+						</Column>
+					</columns>
+				</Table>
+			</content>
+		</Panel>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+					<Button text="Add Operation" press="onAdd"/>
+					<Button text="Save" press="onSave"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

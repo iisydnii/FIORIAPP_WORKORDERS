@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+	<Dialog title = "Add Operation">
+		 <l:Grid defaultSpan = "L12 M12 S12" width="auto" id="idGrid">
+		 	 <l:content>
+		 	 	<f:SimpleForm id="SimpleFormDisplay354"
+            minWidth="1024"
+            maxContainerCols="2"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            labelSpanL="3"
+            labelSpanM="3"
+            emptySpanL="4"
+            emptySpanM="4"
+            columnsL="2"
+            columnsM="2">
+		<f:content text="Operation Entry">
+			<!-- Operation Entry -->
+                <Label text="Control Key"/>
+                <ComboBox xmlns="sap.m" id="Control_Key" items="{ path: '/OrderTypeListSet' }">
+					<core:Item xmlns:core="sap.ui.core" key="{AUART}" text="{AUART}"/>
+				</ComboBox>
+                <Label text="Description"/>
+                <Input id="Desc"/>
+                <Label text="Quantity"/>
+                <Input id="quantity"/>
+                <Label text="Currency"/>
+                <Input id="currency"/>
+                <Label text="Activity Type"/>
+                <Input id="ActType" value="2000"/>
+                <Label text="Purchase Organization"/>
+                <Input id="purOrg"/>
+                <Label text="Planned Time"/>
+                <Input id="Plan_Time"/>
+                <Label text="Time Unit"/>
+                <Input id="Time_Unit" value="MIN"/>
+                <Label text="Long Text"/>
+                <Input id="Long_Text"/>
+    			
+        </f:content>
+        </f:SimpleForm>
+    </l:content>
+    </l:Grid>
+	<buttons>
+		<Button text="Save" press="onSaveOp"></Button>
+		<Button text="Close" press="onCloseNewOp"></Button>
+	</buttons>
+	</Dialog>
+</core:FragmentDefinition>

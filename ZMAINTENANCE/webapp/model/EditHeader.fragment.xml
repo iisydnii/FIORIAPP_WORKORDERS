@@ -1,0 +1,43 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+	<Dialog id="Edit_Header_Dialog" title = "Edit Header">
+		 <l:Grid defaultSpan = "L12 M12 S12" width="auto" id="idGrid">
+		 	 <l:content>
+		 	 	<f:SimpleForm id="SimpleFormDisplay354"
+            minWidth="1024"
+            maxContainerCols="2"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            labelSpanL="3"
+            labelSpanM="3"
+            emptySpanL="4"
+            emptySpanM="4"
+            columnsL="2"
+            columnsM="2">
+			<f:content>
+                <Label text="Work Order Header Description"/>
+                <Input id="SHORT_TEXT"/>
+                <Label text="Start Date"/>
+                <DatePicker width="50%" 
+		            id="START"
+					displayFormat='MM/dd/yyyy'
+					change="handleChange"/>
+                <Label text="Finish Date"/>
+                <DatePicker width="50%" 
+		            id="FINISH"
+					displayFormat='MM/dd/yyyy'
+					change="handleChange"/>
+                <Label text="Equipment"/>
+                <ComboBox xmlns="sap.m" id="EQUIP" items="{ path: '/EquipmentListSet' }" width="50%">
+					<core:Item xmlns:core="sap.ui.core" key="{EQUNR}" text="{EQKTX} - {EQUNR}"/>
+				</ComboBox>
+	        </f:content>
+        </f:SimpleForm>
+    </l:content>
+    </l:Grid>
+	<buttons>
+		<Button text="Save" press="onSaveHChange"></Button>
+		<Button text="Close" press="onCloseEditHDialog"></Button>
+	</buttons>
+	</Dialog>
+</core:FragmentDefinition>

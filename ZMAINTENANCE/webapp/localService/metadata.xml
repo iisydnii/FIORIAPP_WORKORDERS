@@ -1,0 +1,126 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZMAINTENANCE_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="WorkOrderList" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ORDERID"/>
+                </Key>
+                <Property Name="ORDERID" Type="Edm.String" Nullable="false" sap:unicode="false"/>
+                <Property Name="ORDER_TYPE" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="CURRENCY" Type="Edm.Double" sap:unicode="false"/>
+                <Property Name="CURRENCY_ISO" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="ENTERED_BY" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="ENTER_DATE" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="CHANGED_BY" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="CHANGE_DATE" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="SHORT_TEXT" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="LONG_TEXT_FLAG" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="COMP_CODE" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="PLANT" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="CO_AREA" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="RESPCCTR" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="DELETION_FLAG" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="CSTG_SHEET" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="OVERHEAD_KEY" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="ABCINDIC" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="SORTFIELD" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="PRIORITY" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="EQUIPMENT" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="ASSEMBLY" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="SYSTCOND" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="PLANPLANT" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="PLANGROUP" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="RESP_PLANNER_GROUP" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="MN_WK_CTR" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="CUSTOMER" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="MN_WK_PLANT" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="SYSTEM_RESP" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="PLANNED_DOWN_TIME" Type="Edm.Double" sap:unicode="false"/>
+                <Property Name="SYSTEM_AVAILABLE_TO_DATE" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="SYSTEM_AVAILABLE_FROM_DATE" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="SYSTEM_AVAILABLE_TO_TIME" Type="Edm.Time" Precision="0" sap:unicode="false"/>
+                <Property Name="SYSTEM_AVAILABLE_FROM_TIME" Type="Edm.Time" Precision="0" sap:unicode="false"/>
+                <Property Name="COSTCENTER" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="MAINTPLANT" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="MAINTLOC" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="MAINTROOM" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="PLSECTN" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="FUNCLOC" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="ASSET_NO" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="SUB_NUMBER" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="REVISION" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="MAINTPLAN" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="MAINTITEM" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="S_STATUS" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="U_STATUS" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="WORK_CNTR" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="FINISH_DATE" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="START_DATE" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="PRODUCTION_FINISH_DATE" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="PRODUCTION_START_DATE" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="ACTUAL_START_DATE" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="CONFIRMED_FINISH_DATE" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="PLANNER_GROUP" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="ACTUAL_RELEASE_DATE" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="PMACTTYPE" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="NOTIF_NO" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="HISTORY_DATE" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="EQUIDESCR" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="FUNCLDESCR" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="NAME_LIST" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="TEL1_NUMBR" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="POSTL_COD1" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="CITY" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="DISTRICT" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="COUNTRY" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="COUNTRYISO" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="REGION" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="STREET" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="PROFIT_SEGM_NO" Type="Edm.Int64" sap:unicode="false"/>
+                <Property Name="TOTAL_COSTS_ACT" Type="Edm.Double" sap:unicode="false"/>
+                <Property Name="TOTAL_COSTS_PLAN" Type="Edm.Double" sap:unicode="false"/>
+                <Property Name="TOTAL_SETTLEMENT_COSTS" Type="Edm.Double" sap:unicode="false"/>
+                <Property Name="TOTAL_REVENUES_ACT" Type="Edm.Double" sap:unicode="false"/>
+                <Property Name="TOTAL_REVENUES_PLAN" Type="Edm.Double" sap:unicode="false"/>
+                <Property Name="TOTAL_SUM_ACT" Type="Edm.Double" sap:unicode="false"/>
+                <Property Name="TOTAL_SUM_PLAN" Type="Edm.Double" sap:unicode="false"/>
+                <Property Name="OBJECT_NO" Type="Edm.Double" sap:unicode="false"/>
+                <Property Name="SALES_DOC_NUMBER" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="SALES_ITM_NUMBER" Type="Edm.Int64" sap:unicode="false"/>
+                <Property Name="LEADING_ORDERID" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="SUPERIOR_ORDERID" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="ACTUAL_FINISH_TIME" Type="Edm.Time" Precision="0" sap:unicode="false"/>
+                <Property Name="ACTUAL_START_TIME" Type="Edm.Time" Precision="0" sap:unicode="false"/>
+                <Property Name="PRODUCTION_FINISH_TIME" Type="Edm.Time" Precision="0" sap:unicode="false"/>
+                <Property Name="PRODUCTION_START_TIME" Type="Edm.Time" Precision="0" sap:unicode="false"/>
+                <Property Name="TASK_LIST_GROUP" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="GROUP_COUNTER" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="ORDPLANID" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="REFDATE" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="WBS_ELEMENT" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="SUPERIOR_NETWORK" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="SUPERIOR_ACTIVITY" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="ESTIMATED_COSTS" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="SALESORG" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="DISTR_CHAN" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="DIVISION" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="BASIC_FIN" Type="Edm.Time" Precision="0" sap:unicode="false"/>
+                <Property Name="BASICSTART" Type="Edm.Time" Precision="0" sap:unicode="false"/>
+                <Property Name="REFTIME" Type="Edm.Time" Precision="0" sap:unicode="false"/>
+                <Property Name="CALC_MOTIVE" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="ADDR_NO" Type="Edm.String" sap:unicode="false"/>
+            </EntityType>
+            <EntityContainer Name="ZMAINTENANCE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="WorkOrderListSet" EntityType="ZMAINTENANCE_SRV.WorkOrderList" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZMAINTENANCE_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZMAINTENANCE_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

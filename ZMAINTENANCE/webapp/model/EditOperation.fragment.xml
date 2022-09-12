@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+	<Dialog title = "Edit Operation">
+		 <l:Grid defaultSpan = "L12 M12 S12" width="auto" id="idGrid">
+		 	 <l:content>
+		 	 	<f:SimpleForm id="SimpleFormDisplay354"
+            minWidth="1024"
+            maxContainerCols="2"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            labelSpanL="3"
+            labelSpanM="3"
+            emptySpanL="4"
+            emptySpanM="4"
+            columnsL="2"
+            columnsM="2">
+		<f:content>
+                <Label text="Description"/>
+                <Input id="Desc"/>
+                <Label text="Quantity"/>
+                <Input id="quantity"/>
+        </f:content>
+        </f:SimpleForm>
+    </l:content>
+    </l:Grid>
+	<buttons>
+		<Button text="Save" press="onSaveOpChange"></Button>
+		<Button text="Close" press="onCloseEditOpDialog"></Button>
+	</buttons>
+	</Dialog>
+</core:FragmentDefinition>
